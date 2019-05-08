@@ -1,0 +1,681 @@
+	.funds{
+		min-height:calc(100% - 207px);
+		.zichan{
+			width:100%;
+			height:100%;
+			background:#F8FBFF;
+				.funds-main{
+					width: 1200px;
+					margin: 0 auto;
+					overflow: hidden;
+					position:relative;
+					background:#F8FBFF;
+    				margin-bottom:150px;
+					h1{
+						width:100%;
+						height:70px;
+						line-height:70px;
+						background:#fff;
+						color:#000;
+						text-indent:24px;
+						font-size:30px;
+						margin-top:30px;
+						margin-bottom:30px;
+					}
+					.funds-center{
+						width:100%;
+						display:flex;
+						.funds-aside{
+							width: 20%;
+							height:300px;
+							margin-right: 20px;
+							background: #fff;
+							.funds-aside-list{
+								width:100%;
+								height: 300px;
+								display:flex;
+								flex-direction:column;
+								a{
+									font-size: 14px;
+									width:200px;
+									height:70px;
+									line-height: 70px;
+									cursor: pointer;
+									color:#000;
+									background:#fff;
+									margin:15px 0 15px 20px;
+								}
+								.router-link-exact-active{
+									background:#F8FBFF;
+								}
+								i{
+									height: 18px;
+									width: 18px;
+									display: inline-block;
+									vertical-align: middle;
+									margin-left:50px;
+								}
+							}
+						}
+						.funds-content{
+							width: 80%;
+							min-height: 600px;
+							background: #fff;
+								.fund-manage-top,.finance-manage-top,.address-manage-top{
+									height:90px;
+									line-height:90px;
+    								padding-left: 36px;
+									.fundActive{
+										width:120px;
+										height: 40px;
+										line-height:40px;
+										color:#5F3706;
+										background:#FDDB1A;
+										border:none;
+										font-size:14px;
+										border-radius:3px;
+									}
+									.fund-manage-allassets{
+										font-size:18px;
+										color:#000;
+										.spc{
+											color:#E3E3E3;
+											font-size:16px;
+										}
+									}
+									.fund-manage-hidden{
+										color:#E3E3E3;
+										font-size:14px;
+									}
+								}
+						}
+						/*右侧*/
+						.funds-content table{
+							width: 100%;
+							text-align: center;
+							.noWidth{
+								color:#CECECE;
+								font-size:14px;
+							}
+							tr{
+								border-bottom: 1px solid #EEEEEE;
+								line-height:60px;
+								td{
+									color:#000;
+									font-size:14px;
+								}
+								td a{
+									&.deff-text{
+										display:blobk;
+										box-sizing:border-box;
+										padding:6px 5px;
+										width:56px;
+										height:24px;
+										line-height:24px;
+										color:#62350C;
+										font-size:12px;
+										background:#FDDB1A;
+									}
+									&.deff-texts{
+										display:blobk;
+										box-sizing:border-box;
+										padding:6px 5px;
+										width:56px;
+										height:24px;
+										line-height:24px;
+										color:#fff;
+										font-size:12px;
+										background:#3EABFE;
+									}
+								}
+								td img{
+									display: inline-block;
+									vertical-align: middle;
+									margin-right: 5px;
+									width:16px;
+									height:16px;
+								}
+								td.firstTd{
+									text-align: left;
+									text-indent:50px
+								}
+								th.firstTh{
+									text-align: left;
+									text-indent:70px;
+								}
+								th.lastTh{
+									text-align: left;
+									text-indent:50px;
+								}
+								td.noMessage{
+									height:480px;
+									line-height:480px;
+									font-size:14px
+								}
+								td .rechargeCon{
+										padding: 0px 50px;
+										border: 1px solid $blue-font-color ;
+										position: relative;
+										ul{
+											float: left;
+											margin-right: 30px;
+											margin-top:20px;
+											li{
+												text-align: left;
+												font-size: 14px;
+												line-height: 30px;
+											}
+										}
+										.qrcode{
+											height: 100px;	
+											width: 100px;	
+											float: left;	
+											background-size: cover;	
+											margin-right: 30px;	
+											margin-top: 20px;	
+											.qrcodeimg{
+												height: 100px;
+												width: 100px;
+												float: left;
+											}
+										}
+								}
+							}
+						}
+					}
+				}
+		}	
+	/*tab切换*/
+	.loading{
+	 height:30px;
+	 width:51px;
+	 margin:25% auto
+	}
+	.rechargeLoading{
+     height:30px;
+	 width:51px;
+	 margin:66px auto
+	}
+	.fund-manage-nav,.finance-manage-nav,.address-manage-nav{
+		float: left;
+		line-height:26px;
+		margin-top:20px;
+	}
+	.fund-manage-nav li,.finance-manage-nav li,.address-manage-nav li{
+		width: 120px;
+		height: 40px;
+		line-height: 40px;
+		float: left;
+    	text-align: center;
+    	font-size: 14px;
+    	cursor: pointer;
+		}
+	/*选中状态*/
+	.fundActive{
+		color: $blue-font-color;
+		border-bottom: 2px solid $blue-font-color;
+	}
+	div.fundHidden{
+		display: block;
+	}
+	
+	/*弹窗样式*/
+	.display{
+		display: none;
+	}
+	.dialog-pop .dialog-body{
+	// top:15%
+	}
+	.remindDiv{
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		left: 0;
+		top: 0;
+		background: rgba(0,0,0,0.5);
+		z-index: 10;
+		overflow-y: auto;
+	}
+	.remindDiv .confirm-withdraw,.remindDiv .funds-transfer{
+		width: 500px;
+		border-radius: 2px;
+		position: absolute;
+		top: 10%;
+		left: 50%;
+		z-index: 11;
+		overflow: hidden;
+		margin-left: -250px;
+		border:1px solid $border-blue-color;
+	}
+	.title{
+		background-color: $heade-background-color;
+		position: relative;
+		height: 40px;
+		border-bottom: 2px solid $blobk-line-color ;
+	}
+	.title h6{
+		font-size: 14px;
+		line-height: 40px;	
+		text-indent: 20px;
+	}
+	.title h5{
+		text-indent:27px;
+		font-size: 14px;
+		line-height: 40px;
+	}
+	.title h5 i{
+		display: inline-block;
+		height: 18px;
+		width: 18px;
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	.title .close{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		font-size: 14px;
+	}
+	.infor-list,.transfer-list{
+    	overflow: hidden;
+	}
+	.dialog-content .transfer-list {
+		li {
+			float: none;
+			.select-option-box {
+				width:100%;
+				padding-bottom:20px;
+				.current{
+					background-color:#FDDB1A;
+					color:#613601;
+				}
+			}
+		}
+		li:hover{
+			background:#fff;
+			color:#613601;
+		}
+	}
+	.transfer-list li,.infor-list li{
+		position: relative;
+		float: left;
+		width: 99%;
+		line-height: 42px;
+ 	}
+	.infor-list li span,.transfer-list li span{
+		font-size: 14px;
+    	margin-right: 5px; 	
+	}
+	li.warn-txt{
+		color:$red-color;
+	}
+	li.warn-txt i{
+		display: inline-block;
+		height: 18px;
+		width: 18px;
+		vertical-align: middle;
+		margin-right: 10px;
+	}
+	.transferOpe input{
+	    display: inline-block;
+		width: 220px;
+		padding-left: 10px;
+		margin-right: 10px;
+		margin-top:5px;
+	}
+	.transfer-list li div a {
+		float: right;	
+		margin-right:40px;
+	}
+	.transfer-list li div i{
+		margin-right: 5px;
+	}
+	.transfer-list li span:first-child{
+		text-align: right;
+		display: inline-block;
+		margin-right: 15px;
+		width: 80px;
+		
+	}
+	.transfer-list li span.usable-quantity{
+		height: 42px;
+		float: left;
+	}
+
+	.transfer-list li input{
+	}
+	.current-acc{
+		display: inline-block;
+		cursor: pointer;
+		height: 32px;
+		width: 100%;
+		line-height: 32px;
+		border: 1px solid $blue-font-color;
+		text-align: center;
+		border-radius: 5px;
+		margin-right: 20px;
+		background: $input-background;
+	}
+	.infor-list li.error-note,.transfer-list li.error-note{
+		color: $red-color;
+		height: auto;
+		line-height: 30px;
+		margin: 0;
+	}
+	li.last{
+		overflow: hidden;
+    	text-align: center;
+    	margin-top: 15px;
+	}
+	.cancel,.confirm{
+			display: inline-block;
+    	height: 40px;
+    	width: 100px;
+    	text-align: center;
+    	line-height: 40px;
+    	font-size: 14px;
+    	border-radius: 2px;
+    	cursor: pointer;
+    	margin: 0 18px;
+	}
+	.cancel{
+	}
+	.confirm{
+
+	}
+	li.confirm-del-add{
+		font-size: 16px;
+	}
+}
+.funds .funds-content{
+	position:relative
+	min-height:600px
+	.fund-manage-tool{
+		float: right;
+		padding-right: 22px;
+		line-height:50px;
+	}
+	.fund-manage-allassets{
+		padding-top:10px;
+		float: left;
+		margin-right: 15px;
+		& span:last-child{
+			color:$explain-font-color;
+		}
+	}
+	.fund-manage-hidden{
+		float: right;
+		color: $explain-font-color;
+		margin-left:20px;
+		padding-top:10px;
+	}
+	.page {
+  		width: 100%;
+	}
+	.fund-manage-hidden input#zero-assets{
+		float: left;
+		margin-top: 19px;
+		margin-right: 5px;
+		height: 12px;
+		width: 12px;
+	}
+
+	/*充值下拉框*/
+	.funds-content table td.withdrawCon{
+		line-height: 0;
+	}
+	.addressStr{
+		width: 450px;
+		border: 1px solid $border-blue-color ;
+		background: $input-background;
+		border-radius: 2px;
+		line-height: 38px;
+		height: 38px;
+		text-indent: 10px;
+		margin: 10px 0;
+		font-size: 14px;
+	} 
+	.copy{
+		height: 40px;
+	    width: 120px;
+	    text-align: center;
+	    line-height: 40px;
+	    border-radius: 2px;
+	    font-size: 14px;
+	    float: right;
+	    cursor: pointer;
+	    margin-top: 40px;
+	}
+	/*提现下拉框*/
+	.withdrawShow{
+		height: 165px;
+	}
+	.withdrawCon{
+		padding: 0px 100px;
+		border: 1px solid $blue-font-color ;
+		position: relative;
+	}
+	.withdrawCon ul{
+		float: left;
+		margin-right: 100px;
+		width:100%;
+	}
+	.withdrawCon ul li{
+		width: 100%;
+		text-align: left;
+		line-height: 30px;
+		&:hover{
+			background: #fff;	
+		}
+	}
+	.withdrawCon ul li a{
+		float: right;
+	}
+	.wgt-inlineInput .inlint-title{
+	 line-height: 0;
+	color: #7080a3;
+	font-size: 12px;
+	margin: 20px 0 13px;
+	text-align: left;
+	}
+	.amount{
+	  color:$red-color
+	  font-size:16px
+	}
+	.triangleL,.triangleR{
+		position: absolute;
+    right: 12px;
+    top: 25px;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-bottom-color: $blue-font-color;
+		z-index:10;
+	}
+	.triangleL:after,.triangleR:after{
+		content: '';
+    width: 0px;
+    height: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: $sub-background-color;
+    position: absolute;
+    left: -10px;
+    top: -8px;
+	}
+	.numberID div{
+		margin: 20px 0 13px;
+		line-height: 0;
+		color: #7080a3;
+	}
+	.numberID input{
+		width: 50%;
+    text-indent: 10px;
+	}
+	.inputFeemap{
+		width: 190px;
+    height: 38px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+	}
+	.feeNote{
+	margin:10px 0;
+	}
+	.add{
+	  margin-top:10px;
+	}
+	.submit{
+		float: right;
+    height: 38px;
+    width: 100px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 2px;
+    margin-top: 48px;
+    cursor: pointer;
+	}
+}
+.funds-content{
+
+.detailCon{
+	line-height: 30px;
+	padding: 5px 60px;
+	text-align: left;
+	border: 1px solid $blue-font-color;
+	position:relative;
+}
+
+.deposittriangle,.triangle{
+		position: absolute;
+    right: 76px;
+    top:-25px;
+    width: 0;
+    height: 0;
+    border: 12px solid transparent;
+    border-bottom-color: $blue-font-color;
+	}
+.deposittriangle:after,.triangle:after{
+	content: '';
+    width: 0px;
+    height: 0px;
+    border: 11px solid transparent;
+    border-bottom-color: $sub-background-color;
+    position: absolute;
+    left: -11px;
+    top: -9px;
+	}
+	.deposittriangle{
+	right:88px
+	
+	}
+
+	/*input框*/
+
+	.listFilter {
+		float: right;
+		display:flex;
+		margin-right:10px;
+		margin-top:-10px;
+		.wgt-inlineInput{
+		width:140px;
+		height:40px;
+		.select-input{
+			width:100%;
+			height:100%;
+			input{
+				width:100%;
+				height:100%;
+				text-indent:20px;
+			}
+			.optionBox {
+				top:60px;
+				.select-option-box li.current {
+					width:142px;
+					color: #663902;
+					cursor: pointer;
+					background: #fff;
+					text-indent:20px;
+				}
+				.select-option-box li{
+					width:142px;
+					text-indent: 20px;
+					&:hover{
+						width:142px;
+						background:#fff;
+						color:#663902;					
+						background-color:#FDDB1A;
+					}
+				}
+			}
+		}
+		.icon-down{
+			top:100%;
+		}
+	}
+  }
+}
+.funds-content{
+	.addbutton{
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		width: 120px;
+		float: right;
+		margin-right: 20px;
+		margin-top: 11px;
+		border-radius: 2px;
+		cursor: pointer;
+		background:#3DACFD;
+	}
+	.coinlist{
+		float: right;
+		margin-right: 20px;
+		margin-top:-10px;
+	}
+	.coinlist .wgt-inlineInput{
+		width:140px;
+		height:40px;
+		.select-input{
+			width:100%;
+			height:100%;
+			input{
+				width:100%;
+				height:100%;
+				text-indent:20px;
+			}
+			.optionBox {
+				top:60px;
+				.select-option-box li.current {
+					width:142px;
+					color: #663902;
+					cursor: pointer;
+					background-color:#fff;
+					text-indent: 20px;
+				}
+				.select-option-box li{
+					text-indent: 20px;
+					&:hover{
+						width:142px;
+						background-color:#FDDB1A;
+						color:#663902;
+					}
+				}
+			}
+		}
+		.icon-down{
+			top:100%;
+		}
+	}
+	.labelStr{
+		width:50%;
+	  text-indent: 10px;
+	}
+  tr td a.copyLabel{
+		margin-left:40px;
+	}
+}
+.funds-main .icon-down {
+	margin-top: 7px;
+	font-size: 12px;
+}

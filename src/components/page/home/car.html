@@ -1,0 +1,130 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .dot{
+            margin-top: 300px;
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: #000000;
+        }
+        #ball{
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+ 
+<div style="position: relative; width: 100%; height: 675px; border: 2px solid #fff" id="draw_bo" >
+</div>
+<div id="ball" >111</div>
+<script type="text/javascript">
+    var dom=document.getElementById("draw_bo");
+    var ball=document.getElementById("ball");
+    var x=0,y=300;
+    ball.style.left=x+"px";//小球初始坐标x
+    ball.style.top=y+"px";//小球初始坐标y
+    for(var angle=0;angle<1500;angle+=0.01){//画正弦线
+        var childDot=document.createElement('div');
+        childDot.className='dot';
+        childDot.style.top=300*(Math.sin(angle*Math.PI/300))+"px";
+        childDot.style.left=angle+"px";
+        dom.appendChild(childDot);
+    }
+    var time=setInterval(function () {
+        x=x+5;//小球运动速度
+        y=Math.floor(Math.sin(x/600*2*Math.PI)*300)+300;//小球运动的高度
+        if(x>1500) x=0;
+        ball.style.left=x+"px";
+        ball.style.top=y+"px";
+    },100);
+</script>
+</body>
+</html> -->
+<!-- <html>
+<head>
+    <title>Document</title>
+
+</head>
+<body>
+<div id="sundiv" style="position:absolute">
+<img src="../../../assets//img/logo.png"/>
+<div class="wrap">
+        <svg width="190px" height="160px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 80 Q 52.5 10, 95 80 T 180 80," stroke="black" fill="transparent" />
+        </svg>
+    </div>
+</div>
+<script language="javascript" type="text/javascript">
+            directX=1;//x轴的方向
+            directY=1;//y轴的方向
+            //上面两个全局变量似乎没有生效
+            sunX=0;//小太阳的坐标x
+            sunY=0;//小太阳的坐标y
+        function sunMove(){
+            sunX+=directX;
+            sunY+=directY;
+            sundiv.style.top=sunY+"px";
+            sundiv.style.left=sunX+"px";
+            if(sunX+sundiv.offsetWidth>=document.body.clientWidth||sunX<=0){
+                directX=-directX;
+            }
+            //判断y
+            if(sunY+sundiv.offsetHeight>=document.body.clientHeight||sunY<=0){
+                //directY-=directY;
+                directY=-directY;
+            }
+        }
+
+        setInterval("sunMove()",30);
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style type="text/css">
+*{padding: 0;margin:0;}
+body{background: #1b1b1b;}
+#div1{margin:50px auto; width:100%; height: 600px;}
+canvas{background: #fff;}
+</style>
+<script type="text/javascript">
+window.onload = function(){
+    var c = document.getElementById('myCanvas');
+    var content = c.getContext('2d');
+    content.strokeStyle ="#FF5D43";
+    content.beginPath();
+    content.moveTo(0,200);
+    content.quadraticCurveTo(75,50,300,200);
+    content.stroke();
+    content.globalCompositeOperation = 'source-over';   
+    
+    //绘制上面曲线的控制点和控制线，控制点坐标为两直线的交点(75,50)
+    content.strokeStyle = '#f0f';
+    content.beginPath();
+    content.moveTo(75,50);
+    content.lineTo(0,200);
+    content.moveTo(75,50);
+    content.lineTo(300,200);
+    content.stroke();
+    
+};
+</script>
+</head>
+<body>
+    <div id="div1">
+        <canvas id="myCanvas"></canvas>
+    </div>
+</body>
+</html>
